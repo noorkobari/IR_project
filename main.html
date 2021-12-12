@@ -6,31 +6,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js"></script>
     <script src='node_module/boundingbox/dist/boundingbox.js'></script>
+    <script src='index.js'></script>
     <style>
       #map {position: absolute; top:0; right: 0; bottom: 0; left: 0;}
     </style>
   </head>
   <body>
-    <div id="cordinates">
-    <form action="/api/v1/cordinates">
-      <label for="minlat">Minlat</label>
-      <input id="minlatInput" type="number" step="0.0001"></b>
+    <div id="cordinates" style=" float:right; position:relative; right:18px">
+    <form (onclick)="fun()">
+      <label for="minlat">Minlat</label></br>
+      <input id="minlatInput" type="number" step="0.0001"></b></br>
 
-      <label for="maxlat">Maxlat</label>
-      <input id="maxlatInput" type="number" step="0.0001">
+      <label for="maxlat">Maxlat</label></br>
+      <input id="maxlatInput" type="number" step="0.0001"></br>
 
-      <label for="minlon">Minlon</label>
-      <input id="minlonInput" type="number" step="0.0001"></b>
+      <label for="minlon">Minlon</label></br>
+      <input id="minlonInput" type="number" step="0.0001"></b></br>
 
-      <label for="maxlon">Maxlon</label>
-      <input id="maxlonInput" type="number" step="0.0001">
+      <label for="maxlon">Maxlon</label></br>
+      <input id="maxlonInput" type="number" step="0.0001"></br>
 
-      <input type="submit" value="submit" step="0.0001">
+      <input (onclick)="fun()" type="submit" value="submit" step="0.0001">
     </form>
     
 
     </div>
-    <div id="map" style="margin-top: 10%;">
+    <div id="map" style="margin-right: 15%;">
 
       <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
     </div>
@@ -45,11 +46,14 @@
         crossOrigin: true
       }).addTo(map);
 
-      var corner1 = L.latLng(minlatInput,maxlatInput),//الطول
-        corner2 = L.latLng(minlonInput, maxlonInput),//العرض
-        bounds = L.latLngBounds(corner1, corner2)
 
-      var rect = L.rectangle(bounds, {
+//var v1 = document.getElementById('minlatInput')
+//var v2 = document.getElementById('maxlatInput')
+
+    var corner1 = L.latLng(40.712,40.227),//الطول
+    corner2 = L.latLng(12.712,10.227),//العرض
+    bounds = L.latLngBounds(corner1, corner2)
+        var rect = L.rectangle(bounds, {
         color: 'blue',
         weight: 1,
       
@@ -57,12 +61,6 @@
       }).addTo(map);
 
       map.fitBounds(bounds)
-
-
- 
-
-  
-
 
 
     </script>

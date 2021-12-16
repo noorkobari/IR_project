@@ -5,8 +5,8 @@ function fun(){
       var v4 = document.getElementById("maxlonInput").value;
    
 
-          var corner1 = L.latLng(40,100),//الطول
-          corner2 = L.latLng(12, 1),//العرض
+          var corner1 = L.latLng(v1,v2),//الطول
+          corner2 = L.latLng(v3, v4),//العرض
           bounds = L.latLngBounds(corner1, corner2)
       
         var rect = L.rectangle(bounds, {

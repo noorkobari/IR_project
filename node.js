@@ -1,3 +1,0 @@
-var BoundingBox = require('boundingbox')
-
-

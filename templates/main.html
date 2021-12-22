@@ -6,32 +6,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js"></script>
     <script src='node_module/boundingbox/dist/boundingbox.js'></script>
-    
-    <script src='C:\Users\Msys\Desktop\IR\Project\index.js'></script>
+    <script src='C:\Users\Zuhair\Desktop\IR_project-main\index.js'></script>
     <style>
       #map {position: absolute; top:0; right: 0; bottom: 0; left: 0;}
     </style>
   </head>
   <body>
-    <div id="cordinates" style=" float:right; position:relative; right:18px">
+    <div id="cordinates" style=" float:right; position:relative;">
     <form action="/api/v1/cordinates" methods =POST>
       <label for="minlat">Minlat</label></br>
-      <input id="minlatInput" name="minlatInput" type="number" step="0.0001"></b></br>
+      <input id="minlatInput" name="minlatInput" type="number" step="0.0001" required></b></br>
 
       <label for="maxlat">Maxlat</label></br>
-      <input id="maxlatInput" name="maxlatInput" type="number" step="0.0001"></br>
+      <input id="maxlatInput" name="maxlatInput" type="number" step="0.0001" required></br>
 
       <label for="minlon">Minlon</label></br>
-      <input id="minlonInput" name="minlonInput" type="number" step="0.0001"></b></br>
+      <input id="minlonInput" name="minlonInput" type="number" step="0.0001" required></b></br>
 
       <label for="maxlon">Maxlon</label></br>
-      <input id="maxlonInput" name="maxlonInput"  type="number" step="0.0001"></br>
-
+      <input id="maxlonInput" name="maxlonInput"  type="number" step="0.0001" required></br>
+  
+      <!-- <input type="submit" value="Submit" onclick="fun()"> -->
     </form> 
-    <button onclick="fun()">submit</button>
-    
-
+    <button onclick="fun()" value="Submit">Submit</button>
+    <button onclick="window.open('tweets.html')" value="Insights">Show Insights</button>
     </div>
+    {% include 'tweets.html' %}
     <div id="map" style="margin-right: 15%;">
 
       <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;">

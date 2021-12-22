@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title> Insights </title>
+        <script src='https://cdn.plot.ly/plotly-2.6.3.min.js'></script>
+    </head>
+    <body>
+        <div id='myDiv'></div>
+        
+        {{ block javaScript }}
+        <script>
+            x_name = JSON.parse({{ x_name | tojson }})
+	        date = JSON.parse({{ y_name | tojson }})
+            
+            let lis = []
+            lis.append({i})
+            var data = [
+                {
+                    x: x_name,
+                    y: y_name,
+                    type: 'bar'
+                }
+                ];
+
+            Plotly.newPlot('myDiv', data);
+        </script>
+        {{ endblock }}
+    </body>
+</html>
